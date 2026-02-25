@@ -1,0 +1,683 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --grid-size: 5px;
+    --grid-size-w: 30px;
+    --grid-size-h: 1px;
+    --grid-color: rgb(238, 229, 229);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+}
+
+header {
+    width: 83%;
+    position: sticky;
+    top: 20px;
+    padding: 10px 40px 10px 40px;
+    margin-top: 20px;
+    box-shadow: 5px 5px 10px rgba(133, 125, 125, 0.271);
+    border-radius: 100px;
+    background-color: white;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav div {
+    display: flex;
+    flex-direction: column;
+}
+
+header nav div ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 10px;
+}
+
+header nav div ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+header nav div ul li a:hover {
+    background-color: black;
+    color: white;
+    border-radius: 100px;
+}
+
+.hero_logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero_logo img {
+    width: 50px;
+}
+
+.hero_logo a {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+
+/* main container */
+main {
+    /* padding: 10px; */
+    border: 1px solid;
+    width: 100%;
+    position: relative;
+    top: -90px;
+}
+
+.content {
+    /* border: 1px solid; */
+    padding: 60px 10px;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.content h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 100%;
+}
+
+.grid_bg {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -99;
+    overflow: hidden;
+}
+
+.grid_bg_item {
+    width: var(--grid-size);
+    height: var(--grid-size);
+    border-radius: 50%;
+    background-color: var(--grid-color);
+    position: absolute;
+    z-index: -99;
+    top: 150px;
+    left: 200px;
+}
+
+.grid_bg_item::before {
+    content: "";
+    width: var(--grid-size-w);
+    height: var(--grid-size-h);
+    background-color: var(--grid-color);
+    position: absolute;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.grid_bg_item::after {
+    content: "";
+    width: var(--grid-size-h);
+    height: var(--grid-size-w);
+    background-color: var(--grid-color);
+    position: absolute;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* rotate: 90deg; */
+}
+
+.hero {
+    background: linear-gradient(rgba(255, 255, 255, 0.096), rgba(255, 255, 255, 0.692));
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 10px;
+    z-index: -999;
+}
+
+.hero_content {
+    /* border: 1px solid; */
+    margin-top: 100px;
+    width: 50%;
+    padding: 10px;
+    margin-left: 100px;
+}
+
+.hero h1 {
+    font-size: 60px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.hero .hero_contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 400px;
+    /* border: 1px solid; */
+    margin-bottom: 20px;
+}
+
+.hero .hero_contact a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 30px;
+    transition: all 0.3s ease;
+    border: 1px solid;
+    border-radius: 100px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.hero .hero_contact a:hover {
+    background-color: black;
+    color: white;
+}
+
+
+
+.hero .hero_contact .call:hover::before {
+    width: 100%;
+    text-align: center;
+    content: "0777 895 725";
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    background-color: rgb(0, 60, 255);
+    padding: 10px;
+    border-radius: 100px;
+    color: white;
+    /* transition: all 1s ease; */
+    animation: call .5s ease;
+}
+
+@keyframes call {
+    0% {
+        top: 50px;
+        opacity: 0;
+    }
+
+    100% {
+        top: 70px;
+        opacity: 1;
+    }
+}
+
+.hero .hero_contact .call {
+    background-color: black;
+    color: white;
+}
+
+.hero .hero_contact .call::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    /* background-color: black; */
+    border: 6px solid rgb(0, 101, 253);
+    /* padding: 10px; */
+    border-radius: 100px;
+    color: white;
+    /* transition: all 1s ease; */
+    animation: call_btn_loop .8s ease-in infinite;
+}
+
+@keyframes call_btn_loop {
+    0% {
+        opacity: 0;
+        padding: 0;
+        background-color: transparent;
+    }
+
+    50% {
+        opacity: 1;
+        padding: 5px;
+        background-color: transparent;
+        border-radius: 100px;
+    }
+
+    100% {
+        opacity: 0;
+        padding: 0;
+        background-color: transparent;
+    }
+}
+
+.hero .hero_list {
+    margin-top: 30px;
+    /* border: 1px solid; */
+    width: 70%;
+
+}
+
+.hero .hero_list ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.hero_list ul li {
+    border: 1px solid;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.hero_list ul li:hover {
+    background-color: black;
+    color: white;
+    box-shadow: 5px 5px 0px black;
+    cursor: pointer;
+}
+
+.services {
+    padding: 10px;
+    width: 80%;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid; */
+    margin: auto;
+    margin-top: 20px;
+}
+
+.services h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.services .cards-container {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.services .cards-container .card {
+    border: 1px solid;
+    padding: 10px 30px 20px 30px;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: all .2s ease-in-out;
+}
+
+.cards-container .card:hover {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    box-shadow: 5px 5px 0px rgb(19, 33, 233);
+    cursor: pointer;
+}
+
+.card h3 {
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.card:hover h3 {
+    color: rgb(29, 43, 226);
+}
+
+/* ================= ABOUT SECTION ================= */
+#about {
+    background-color: #f9f9f9;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    width: 80%;
+    margin: auto;
+}
+
+.about-text {
+    flex: 1;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.about-list {
+    flex: 1;
+}
+
+.about-list ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.about-list ul li {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.about-list .icon {
+    font-weight: bold;
+    color: rgb(29, 43, 226);
+}
+
+/* ================= PROCESS SECTION ================= */
+.process-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 80%;
+    margin: auto;
+}
+
+.process-step {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.process-step:hover {
+    transform: translateY(-10px);
+    box-shadow: 5px 5px 0px rgb(19, 33, 233);
+}
+
+.step-num {
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(29, 43, 226);
+    opacity: 0.5;
+    margin-bottom: 15px;
+}
+
+/* ================= PROJECTS SECTION ================= */
+#projects {
+    background-color: #f4f4f4;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    width: 80%;
+    margin: auto;
+}
+
+.project-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    box-shadow: 5px 5px 0px black;
+}
+
+.project-img {
+    height: 250px;
+    background-color: #ddd;
+    background-size: cover;
+    background-position: center;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-info h3 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.project-info p {
+    color: #666;
+    font-style: italic;
+}
+
+/* ================= TESTIMONIALS SECTION ================= */
+.testimonials-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 80%;
+    margin: auto;
+}
+
+.testimonial-card {
+    flex: 1;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.testimonial-card cite {
+    font-weight: bold;
+    color: rgb(29, 43, 226);
+}
+
+/* ================= CERTIFICATIONS SECTION ================= */
+#certifications {
+    background-color: #222;
+    color: white;
+    min-height: auto;
+    padding: 60px 20px;
+}
+
+#certifications h2 {
+    color: white;
+}
+
+.certifications-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 80%;
+    margin: auto;
+}
+
+.cert-item {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+/* ================= CONTACT SECTION ================= */
+#contact {
+    background-color: #f9f9f9;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.contact-info address p {
+    margin-bottom: 15px;
+}
+
+.contact-info a {
+    color: rgb(29, 43, 226);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: black;
+}
+
+.contact-form {
+    flex: 1;
+}
+
+.contact-form form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: rgb(29, 43, 226);
+}
+
+.submit-btn {
+    grid-column: span 2;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: rgb(29, 43, 226);
+    box-shadow: 0 5px 15px rgba(29, 43, 226, 0.4);
+}
+
+/* ================= FOOTER ================= */
+footer {
+    width: 100%;
+    background-color: #111;
+    color: #aaa;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 5px 0;
+}
