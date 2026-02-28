@@ -1,0 +1,104 @@
+{
+    "_comment": "ZAM Construction — Gallery Data File. Edit this file to add/remove/reorder gallery items. Reload gallery.html to reflect changes.",
+    "gallery": [
+        {
+            "id": 1,
+            "type": "image",
+            "src": "./assets/images/project-stormwater.png",
+            "alt": "Colombo Stormwater Upgrade",
+            "title": "Colombo Stormwater Upgrade",
+            "location": "Colombo 07 — Municipal",
+            "category": "stormwater"
+        },
+        {
+            "id": 2,
+            "type": "image",
+            "src": "./assets/images/project-residential.png",
+            "alt": "House Connection Nugegoda",
+            "title": "House Connection Nugegoda",
+            "location": "Nugegoda — Residential",
+            "category": "residential"
+        },
+        {
+            "id": 3,
+            "type": "image",
+            "src": "./assets/images/project-water-supply.png",
+            "alt": "Rajagiriya High-Rise Main",
+            "title": "Rajagiriya High-Rise Main",
+            "location": "Rajagiriya — Commercial",
+            "category": "water-supply"
+        },
+        {
+            "id": 4,
+            "type": "image",
+            "src": "./assets/images/project-sewerage.png",
+            "alt": "Dehiwala Sewerage Extension",
+            "title": "Dehiwala Sewerage Extension",
+            "location": "Dehiwala — Infrastructure",
+            "category": "sewerage"
+        },
+        {
+            "id": 5,
+            "type": "video",
+            "src": "./assets/bg.mp4",
+            "poster": "./assets/images/project-stormwater.png",
+            "alt": "Kelaniya Municipality Drain Rehab",
+            "title": "Kelaniya Municipality — Drain Rehab",
+            "location": "Kelaniya — Municipal Works",
+            "category": "municipal"
+        },
+        {
+            "id": 6,
+            "type": "image",
+            "src": "./assets/images/project-stormwater.png",
+            "alt": "Ratmalana Outfall Construction",
+            "title": "Ratmalana Outfall Construction",
+            "location": "Ratmalana — Coastal",
+            "category": "stormwater"
+        },
+        {
+            "id": 7,
+            "type": "image",
+            "src": "./assets/images/project-water-supply.png",
+            "alt": "Maharagama Water Main Extension",
+            "title": "Maharagama Water Main Extension",
+            "location": "Maharagama — NWSDB",
+            "category": "water-supply"
+        },
+        {
+            "id": 8,
+            "type": "video",
+            "src": "./assets/v1.mp4",
+            "poster": "./assets/images/project-sewerage.png",
+            "alt": "Moratuwa Sewer Rehabilitation",
+            "title": "Moratuwa Sewer Rehabilitation",
+            "location": "Moratuwa — Municipal",
+            "category": "sewerage"
+        },
+        {
+            "id": 9,
+            "type": "image",
+            "src": "./assets/images/project-residential.png",
+            "alt": "Pannipitiya Housing Scheme",
+            "title": "Pannipitiya Housing Scheme",
+            "location": "Pannipitiya — Residential",
+            "category": "residential"
+        }
+    ],
+    "videos": [
+        {
+            "id": 1,
+            "src": "./assets/bg.mp4",
+            "poster": "./assets/images/project-stormwater.png",
+            "title": "Site Execution — Pipe Laying",
+            "description": "Full excavation-to-backfill process for a 200m water main installation"
+        },
+        {
+            "id": 2,
+            "src": "./assets/bg.mp4",
+            "poster": "./assets/images/project-sewerage.png",
+            "title": "Stormwater Drain — Box Culvert Install",
+            "description": "Precast box culvert installation for the Colombo 07 stormwater upgrade project"
+        }
+    ]
+}

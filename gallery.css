@@ -1,0 +1,364 @@
+/* ==================================================
+   GALLERY.CSS — Page-specific styles for gallery.html
+   Depends on: global.css (design tokens, header, footer, page-section)
+   ================================================== */
+
+/* ===== FILTER BUTTONS ===== */
+.gallery-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-bottom: 0 !important;
+    margin-bottom: 0;
+}
+
+.filter-btn {
+    padding: 8px 22px;
+    border: 2px solid var(--color-black);
+    border-radius: var(--radius-pill);
+    background: transparent;
+    font-family: var(--font-main);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--color-black);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+/* ===== GALLERY SECTION ===== */
+.gallery-section {
+    padding-top: 36px;
+}
+
+/* ===== SMART GALLERY GRID =====
+   3-column grid. JS applies .landscape / .portrait classes based on
+   naturalWidth / naturalHeight. Each row is a fixed 240px base unit.
+   Items with .landscape span 2 cols × 1 row.
+   Items with .portrait  span 1 col  × 2 rows.
+   ================================================== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 240px;
+    gap: 16px;
+    /* NO align-items here — default is stretch, items fill their cell */
+}
+
+/* ===== SPAN CLASSES (applied by JS) ===== */
+.gallery-item.landscape {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.gallery-item.portrait {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+/* ===== GALLERY ITEM BASE ===== */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-card);
+    cursor: pointer;
+    border: 1px solid var(--color-gray-border);
+    background-color: var(--color-gray-mid);
+    /* height: 100% not needed — grid stretch handles it */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+}
+
+/* ===== MEDIA — fills the entire card ===== */
+.gallery-item img,
+.gallery-item video {
+    position: absolute;
+    /* pinned to all 4 edges of the item */
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s ease;
+}
+
+.gallery-item:hover img,
+.gallery-item:hover video {
+    transform: scale(1.05);
+}
+
+/* ===== HOVER OVERLAY ===== */
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.82) 0%,
+            rgba(0, 0, 0, 0.18) 50%,
+            transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* Category tag pill */
+.gallery-tag {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 8px;
+    width: fit-content;
+}
+
+.gallery-overlay h3 {
+    color: var(--color-white);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 3px;
+    line-height: 1.3;
+}
+
+.gallery-overlay p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.78rem;
+}
+
+/* Video badge — top-right corner indicator */
+.gallery-item[data-type="video"]::before {
+    content: "▶ VIDEO";
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 9px;
+    border-radius: var(--radius-pill);
+    pointer-events: none;
+    font-family: var(--font-main);
+}
+
+/* ===== FILTER: HIDDEN STATE ===== */
+.gallery-item.hidden {
+    display: none;
+}
+
+/* ===== EMPTY STATE ===== */
+.gallery-empty {
+    text-align: center;
+    color: var(--color-gray-muted);
+    font-size: 1rem;
+    padding: 60px 0;
+    width: 100%;
+}
+
+/* ===== SKELETON LOADER (shown while JSON fetches) ===== */
+@keyframes skelPulse {
+
+    0%,
+    100% {
+        opacity: 0.55;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.gallery-skeleton {
+    border-radius: var(--radius-card);
+    background: linear-gradient(135deg, var(--color-gray-mid) 0%, var(--color-gray-border) 100%);
+    animation: skelPulse 1.4s ease-in-out infinite;
+    min-height: 240px;
+}
+
+/* ===== SCROLL FADE-IN ANIMATION ===== */
+.fade-in-item {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.fade-in-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== VIDEO SHOWCASE SECTION ===== */
+.video-section {
+    background-color: var(--color-gray-light);
+    border-radius: var(--radius-lg);
+    padding: 52px 50px;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.video-card {
+    background-color: var(--color-white);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    border: 1px solid var(--color-gray-border);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+}
+
+.video-card:hover {
+    box-shadow: var(--shadow-card);
+    transform: translateY(-3px);
+}
+
+.video-card video {
+    width: 100%;
+    display: block;
+    height: 220px;
+    object-fit: cover;
+    background-color: var(--color-black);
+}
+
+.video-info {
+    padding: 16px 20px;
+}
+
+.video-info h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--color-black);
+}
+
+.video-info p {
+    font-size: 0.83rem;
+    color: var(--color-gray-muted);
+    line-height: 1.5;
+}
+
+/* ===== CTA STRIP ===== */
+.cta-strip {
+    text-align: center;
+    background-color: var(--color-dark);
+    border-radius: var(--radius-lg);
+    padding: 64px 40px;
+    margin-bottom: 40px;
+}
+
+.cta-strip h2 {
+    font-size: var(--font-size-h2);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-white);
+    margin-bottom: 12px;
+}
+
+.cta-strip p {
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 28px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Override global .cta-btn inside the dark strip */
+.cta-strip .cta-btn {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-white);
+}
+
+.cta-strip .cta-btn:hover {
+    background-color: var(--color-white);
+    border-color: var(--color-white);
+    color: var(--color-black);
+    box-shadow: var(--shadow-glow);
+}
+
+/* ===== RESPONSIVE — Tablet ≤ 992px ===== */
+@media (max-width: 992px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 220px;
+    }
+
+    /* Landscape can still span the 2 available cols */
+    .gallery-item.landscape {
+        grid-column: span 2;
+    }
+
+    /* Portrait spans 2 rows */
+    .gallery-item.portrait {
+        grid-row: span 2;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-section {
+        padding: 40px 32px;
+    }
+}
+
+/* ===== RESPONSIVE — Mobile ≤ 768px ===== */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 220px;
+        gap: 12px;
+    }
+
+    /* Reset all span classes on mobile — full-width single column */
+    .gallery-item,
+    .gallery-item.landscape,
+    .gallery-item.portrait {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+    }
+
+    .video-section {
+        padding: 30px 20px;
+    }
+
+    .cta-strip {
+        padding: 44px 20px;
+    }
+
+    .gallery-filters {
+        gap: 8px;
+    }
+
+    .filter-btn {
+        padding: 7px 16px;
+        font-size: 0.8rem;
+    }
+}

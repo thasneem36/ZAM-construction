@@ -1,10 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Supply & Drainage Contractor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./global.css">
     <link rel="stylesheet" href="./Style.css">
 </head>
 
@@ -15,32 +19,46 @@
         <header>
             <nav>
                 <div class="hero_logo">
-                    <img src="./assets/logo.png" alt="">
-                    <a href="./index.html">usama</a>
+                    <img src="./assets/logo.png" alt="ZAM Construction Logo">
+                    <a href="./index.html">ZAM Construction</a>
                 </div>
 
-                <div class="hero_nav">
+                <div class="hero_nav" id="hero_nav">
                     <ul>
-                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#hero" class="active">Home</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="#about">About</a></li>
                         <li><a href="#process">Process</a></li>
                         <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="./gallery.html">Gallery</a></li>
+                        <li><a href="./about.html">About</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
                     </ul>
                 </div>
+
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    &#9776;
+                </button>
             </nav>
         </header>
 
         <main>
             <!-- ================= HERO SECTION ================= -->
-            <div class="grid_bg" id="grid_bg">
-                <!-- <div class="grid_bg_item"></div> -->
-            </div>
             <section class="hero content" id="hero">
+
+                <!-- Layer 1 (bottom): Background video -->
+                <div class="hero-video-wrapper">
+                    <video class="hero-video" autoplay muted loop playsinline>
+                        <source src="./assets/bg.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+
+                <!-- Layer 2: Dot grid overlay (on top of video) -->
+                <div class="grid_bg" id="grid_bg"></div>
+
+                <!-- Layer 3 (top): Content -->
                 <div class="hero_content">
-                    <h1>Expert Water & Drainage Solutions in Colombo</h1>
-                    <!-- <p>28+ years of certified water supply, sewerage and stormwater management across Sri Lanka</p> -->
+                    <h1>Expert Water &amp; Drainage Solutions in Colombo</h1>
                     <div class="hero_contact">
                         <a href="tel:0777279301" class="call">Call Now</a>
                         <a href="#contact">Get a Free Quote</a>
@@ -58,37 +76,32 @@
             <!-- ================= SERVICES SECTION ================= -->
             <section class="content services" id="services">
                 <h2>Our Services</h2>
-
                 <div class="cards-container">
                     <div class="card">
                         <h3>Stormwater Disposal Systems</h3>
                         <p>Comprehensive design and implementation of efficient stormwater management solutions.</p>
                     </div>
-
                     <div class="card">
                         <h3>Sewerage Construction</h3>
                         <p>Professional construction and maintenance of robust sewerage networks.</p>
                     </div>
-
                     <div class="card">
                         <h3>Water Supply Systems</h3>
                         <p>Reliable water distribution systems for commercial and residential applications.</p>
                     </div>
-
                     <div class="card">
-                        <h3>NWSDB Approvals and Certifications</h3>
-                        <p>Expert assistance with all necessary regulatory compliance and documentation.</p>
+                        <h3>NWSDB Approvals &amp; Liaison</h3>
+                        <p>End-to-end management of NWSDB approval processes and compliance documentation.</p>
                     </div>
-
                     <div class="card">
-                        <h3>Municipal Infrastructure Projects</h3>
-                        <p>Large-scale municipal drainage and water supply infrastructure development.</p>
+                        <h3>Municipal Projects</h3>
+                        <p>Large-scale municipal infrastructure works delivered on time and within budget.</p>
                     </div>
-
                     <div class="card">
-                        <h3>Drainage Inspection and Repair</h3>
-                        <p>Advanced diagnostics and prompt repair services for existing systems.</p>
+                        <h3>Drainage Inspection &amp; Repair</h3>
+                        <p>CCTV inspection, root cutting, re-lining and emergency drain repair services.</p>
                     </div>
+                </div>
             </section>
 
             <!-- ================= ABOUT SECTION ================= -->
@@ -98,6 +111,7 @@
                     <div class="about-text">
                         <p>With 28+ years of contracting experience, we specialize in delivering high-quality, reliable,
                             and compliant water supply and drainage systems tailored to your specific project needs.</p>
+                        <a href="./about.html" class="about-more-link">Meet our founder &amp; team &#8594;</a>
                     </div>
                     <div class="about-list">
                         <ul>
@@ -177,23 +191,58 @@
             <!-- ================= TESTIMONIALS SECTION ================= -->
             <section class="content" id="testimonials">
                 <h2>What Our Clients Say</h2>
-                <div class="testimonials-container">
-                    <div class="testimonial-card">
-                        <p>"They delivered exactly what was promised. The stormwater drainage system they installed
-                            solved our long-standing flooding issue completely."</p>
-                        <cite>- Sunil Perera, Facility Manager</cite>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"Exceptional professionalism and adherence to NWSDB standards. The team was highly
-                            knowledgeable and efficient from start to finish."</p>
-                        <cite>- Anuradha Silva, Lead Architect</cite>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"Fast, reliable, and transparent with pricing. They managed our commercial water supply
-                            connection smoothly."</p>
-                        <cite>- Mohammed Rizwan, Business Owner</cite>
+
+                <!-- Slider viewport -->
+                <div class="slider-viewport" id="testimonials-slider">
+                    <div class="slider-track" id="slider-track">
+
+                        <div class="testimonial-card">
+                            <div class="quote-mark">&#8220;</div>
+                            <p>They delivered exactly what was promised. The stormwater drainage system they installed
+                                solved our long-standing flooding issue completely.</p>
+                            <cite>— Sunil Perera, Facility Manager</cite>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="quote-mark">&#8220;</div>
+                            <p>Exceptional professionalism and adherence to NWSDB standards. The team was highly
+                                knowledgeable and efficient from start to finish.</p>
+                            <cite>— Anuradha Silva, Lead Architect</cite>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="quote-mark">&#8220;</div>
+                            <p>Fast, reliable, and transparent with pricing. They managed our commercial water supply
+                                connection smoothly from approvals to pressure testing.</p>
+                            <cite>— Mohammed Rizwan, Business Owner</cite>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="quote-mark">&#8220;</div>
+                            <p>Outstanding site management even in a tight residential area. Minimal disruption, on-time
+                                delivery, and zero defects on handover.</p>
+                            <cite>— Priya Mendis, Project Manager</cite>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="quote-mark">&#8220;</div>
+                            <p>ZAM Construction handled our municipal culvert upgrade with precision. We've already
+                                recommended them to two other councils.</p>
+                            <cite>— Ranjith Fernando, Municipal Engineer</cite>
+                        </div>
+
                     </div>
                 </div>
+
+                <!-- Dot indicators -->
+                <div class="slider-dots" id="slider-dots"></div>
+
+                <!-- Prev / Next arrows -->
+                <div class="slider-arrows">
+                    <button class="slider-btn" id="slider-prev" aria-label="Previous">&#8592;</button>
+                    <button class="slider-btn" id="slider-next" aria-label="Next">&#8594;</button>
+                </div>
+
             </section>
 
             <!-- ================= CERTIFICATIONS SECTION ================= -->
@@ -208,7 +257,7 @@
             </section>
 
             <!-- ================= CONTACT SECTION ================= -->
-            <section class="content" id="contact">
+            <!-- <section class="content" id="contact">
                 <h2>Contact Us</h2>
                 <div class="contact-container">
                     <div class="contact-info">
@@ -255,14 +304,83 @@
                         </form>
                     </div>
                 </div>
-            </section>
+            </section> -->
         </main>
 
         <!-- ================= FOOTER ================= -->
         <footer>
-            <!-- Replace [YOUR COMPANY NAME] with actual company name -->
-            <p>&copy; 2025 [YOUR COMPANY NAME]. All Rights Reserved.</p>
-            <p>Made with love in Sri Lanka</p>
+            <div class="footer-inner">
+
+                <!-- Col 1: Brand -->
+                <div class="footer-col footer-brand">
+                    <div class="footer-logo">
+                        <img src="./assets/logo.png" alt="ZAM Construction Logo">
+                        <span>ZAM Construction</span>
+                    </div>
+                    <p class="footer-tagline">Sri Lanka's trusted contractor for water supply, sewerage &amp; stormwater
+                        drainage systems since 1996.</p>
+                    <div class="footer-certifications">
+                        <span class="cert-badge">NWSDB Certified</span>
+                        <span class="cert-badge">ICTAD Registered</span>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#process">Our Process</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Services -->
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Stormwater Disposal</a></li>
+                        <li><a href="#services">Sewerage Construction</a></li>
+                        <li><a href="#services">Water Supply Systems</a></li>
+                        <li><a href="#services">NWSDB Approvals</a></li>
+                        <li><a href="#services">Municipal Projects</a></li>
+                        <li><a href="#services">Drainage Inspection</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact -->
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <span class="footer-contact-icon">&#128205;</span>
+                            <span>Colombo, Sri Lanka</span>
+                        </li>
+                        <li>
+                            <span class="footer-contact-icon">&#128222;</span>
+                            <a href="tel:0777279301">0777 279 301</a>
+                        </li>
+                        <li>
+                            <span class="footer-contact-icon">&#9993;</span>
+                            <a href="mailto:info@zamconstruction.lk">info@zamconstruction.lk</a>
+                        </li>
+                        <li>
+                            <span class="footer-contact-icon">&#128336;</span>
+                            <span>24/7 Emergency Response</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> ZAM Construction. All Rights Reserved.</p>
+                <p class="footer-bottom-right">Engineered for Durability &bull; Made in Sri Lanka</p>
+            </div>
         </footer>
     </div>
     <script src="./index.js"></script>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Gallery | ZAM Construction</title>
+    <meta name="description"
+        content="Browse ZAM Construction's portfolio of completed water supply, sewerage, and stormwater drainage projects across Sri Lanka.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./global.css">
+    <link rel="stylesheet" href="./gallery.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <!-- ================= GLOBAL HEADER ================= -->
+        <header>
+            <nav>
+                <div class="hero_logo">
+                    <img src="./assets/logo.png" alt="ZAM Construction Logo">
+                    <a href="./index.html">ZAM Construction</a>
+                </div>
+
+                <div class="hero_nav" id="hero_nav">
+                    <ul>
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./index.html#services">Services</a></li>
+                        <li><a href="./index.html#process">Process</a></li>
+                        <li><a href="./index.html#projects">Projects</a></li>
+                        <li><a href="./gallery.html" class="active">Gallery</a></li>
+                        <li><a href="./about.html">About</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    &#9776;
+                </button>
+            </nav>
+        </header>
+
+        <main style="width:100%;">
+
+            <!-- ================= PAGE BANNER ================= -->
+            <div class="page-banner">
+                <h1>Project Gallery</h1>
+                <p>Visual proof of our work — water supply systems, sewerage networks, and stormwater installations
+                    across Sri Lanka</p>
+            </div>
+
+            <!-- ================= FILTER TABS ================= -->
+            <div class="gallery-filters page-section" style="padding-bottom: 0;">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="stormwater">Stormwater</button>
+                <button class="filter-btn" data-filter="sewerage">Sewerage</button>
+                <button class="filter-btn" data-filter="water-supply">Water Supply</button>
+                <button class="filter-btn" data-filter="municipal">Municipal</button>
+                <button class="filter-btn" data-filter="residential">Residential</button>
+            </div>
+
+            <!-- ================= PHOTO GALLERY ================= -->
+            <!-- Items are injected here by gallery.js from gallery-data.json -->
+            <section class="page-section gallery-section">
+                <div class="gallery-grid" id="gallery-grid">
+                    <!-- Loading skeleton shown until JSON is fetched -->
+                    <div class="gallery-skeleton"></div>
+                    <div class="gallery-skeleton"></div>
+                    <div class="gallery-skeleton"></div>
+                </div>
+                <p class="gallery-empty" id="gallery-empty" style="display:none;">No projects found for this category.
+                </p>
+            </section>
+
+            <!-- ================= VIDEO SHOWCASE ================= -->
+            <!-- Video cards are injected by gallery.js from gallery-data.json -->
+            <section class="page-section video-section fade-in-item">
+                <h2 class="section-title">Video Showcase</h2>
+                <p class="section-sub">Watch our team at work on live infrastructure projects.</p>
+                <div class="video-grid" id="video-grid">
+                    <!-- Populated by gallery.js -->
+                </div>
+            </section>
+
+            <!-- ================= CTA ================= -->
+            <section class="page-section cta-strip fade-in-item">
+                <h2>Want to see your project here?</h2>
+                <p>We document every project from mobilisation to handover. Speak to our team about your requirements.
+                </p>
+                <a href="./contact.html" class="cta-btn">Request a Quote</a>
+            </section>
+
+        </main>
+
+        <!-- ================= FOOTER ================= -->
+        <footer>
+            <div class="footer-inner">
+
+                <!-- Col 1: Brand -->
+                <div class="footer-col footer-brand">
+                    <div class="footer-logo">
+                        <img src="./assets/logo.png" alt="ZAM Construction Logo">
+                        <span>ZAM Construction</span>
+                    </div>
+                    <p class="footer-tagline">Sri Lanka's trusted contractor for water supply, sewerage &amp; stormwater
+                        drainage systems since 1996.</p>
+                    <div class="footer-certifications">
+                        <span class="cert-badge">NWSDB Certified</span>
+                        <span class="cert-badge">ICTAD Registered</span>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./index.html#services">Services</a></li>
+                        <li><a href="./about.html">About Us</a></li>
+                        <li><a href="./index.html#process">Our Process</a></li>
+                        <li><a href="./gallery.html">Gallery</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Services -->
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="./index.html#services">Stormwater Disposal</a></li>
+                        <li><a href="./index.html#services">Sewerage Construction</a></li>
+                        <li><a href="./index.html#services">Water Supply Systems</a></li>
+                        <li><a href="./index.html#services">NWSDB Approvals</a></li>
+                        <li><a href="./index.html#services">Municipal Projects</a></li>
+                        <li><a href="./index.html#services">Drainage Inspection</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact -->
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <span class="footer-contact-icon">&#128205;</span>
+                            <span>Colombo, Sri Lanka</span>
+                        </li>
+                        <li>
+                            <span class="footer-contact-icon">&#128222;</span>
+                            <a href="tel:0777279301">0777 279 301</a>
+                        </li>
+                        <li>
+                            <span class="footer-contact-icon">&#9993;</span>
+                            <a href="mailto:info@zamconstruction.lk">info@zamconstruction.lk</a>
+                        </li>
+                        <li>
+                            <span class="footer-contact-icon">&#128336;</span>
+                            <span>24/7 Emergency Response</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> ZAM Construction. All Rights Reserved.</p>
+                <p class="footer-bottom-right">Engineered for Durability &bull; Made in Sri Lanka</p>
+            </div>
+        </footer>
+
+    </div>
+    <script src="./global.js"></script>
+    <script src="./gallery.js"></script>
+</body>
+
+</html>

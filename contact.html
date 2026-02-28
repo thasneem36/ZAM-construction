@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | ZAM Construction</title>
+    <meta name="description"
+        content="Get in touch with ZAM Construction for water supply, sewerage and stormwater drainage projects across Sri Lanka. Call, email, or fill our contact form.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./global.css">
+    <link rel="stylesheet" href="./contact.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <!-- ================= HEADER ================= -->
+        <header>
+            <nav>
+                <div class="hero_logo">
+                    <img src="./assets/logo.png" alt="ZAM Construction Logo">
+                    <a href="./index.html">ZAM Construction</a>
+                </div>
+                <div class="hero_nav" id="hero_nav">
+                    <ul>
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./index.html#services">Services</a></li>
+                        <li><a href="./index.html#process">Process</a></li>
+                        <li><a href="./index.html#projects">Projects</a></li>
+                        <li><a href="./gallery.html">Gallery</a></li>
+                        <li><a href="./about.html">About</a></li>
+                        <li><a href="./contact.html" class="active">Contact</a></li>
+                    </ul>
+                </div>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation"
+                    aria-expanded="false">&#9776;</button>
+            </nav>
+        </header>
+
+        <main style="width:100%;">
+
+            <!-- ================= PAGE BANNER ================= -->
+            <div class="page-banner">
+                <h1>Contact Us</h1>
+                <p>Get a free consultation for your water supply, sewerage or stormwater project</p>
+            </div>
+
+            <!-- ================= CONTACT BODY ================= -->
+            <section class="page-section contact-body">
+
+                <!-- LEFT: Info cards -->
+                <div class="contact-info-col">
+
+                    <div class="contact-info-card">
+                        <div class="info-icon">&#128205;</div>
+                        <div>
+                            <h3>Our Office</h3>
+                            <p>Colombo, Sri Lanka</p>
+                            <p>Western Province</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="info-icon">&#128222;</div>
+                        <div>
+                            <h3>Phone</h3>
+                            <a href="tel:0777279301">0777 279 301</a>
+                            <p class="info-note">Mon – Sun · 7am – 7pm</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="info-icon">&#9993;</div>
+                        <div>
+                            <h3>Email</h3>
+                            <a href="mailto:info@zamconstruction.lk">info@zamconstruction.lk</a>
+                            <p class="info-note">Response within 24 hours</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card emergency">
+                        <div class="info-icon">&#9889;</div>
+                        <div>
+                            <h3>24/7 Emergency Line</h3>
+                            <a href="tel:0777279301">0777 279 301</a>
+                            <p class="info-note">Colombo district · Immediate response</p>
+                        </div>
+                    </div>
+
+                    <!-- Certifications bar -->
+                    <div class="contact-certs">
+                        <span class="cert-badge">NWSDB Certified</span>
+                        <span class="cert-badge">ICTAD Registered</span>
+                        <span class="cert-badge">28+ Years</span>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT: Form -->
+                <div class="contact-form-col">
+                    <div class="contact-form-card">
+                        <h2>Send Us a Message</h2>
+                        <p class="form-subtitle">Tell us about your project and we'll get back to you within one
+                            business day.</p>
+
+                        <form id="contact-form" novalidate>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contact-name">Full Name <span class="required">*</span></label>
+                                    <input type="text" id="contact-name" name="name" placeholder="e.g. Sunil Perera"
+                                        required>
+                                    <span class="field-error" id="name-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-phone">Phone Number <span class="required">*</span></label>
+                                    <input type="tel" id="contact-phone" name="phone" placeholder="e.g. 0777 000 000"
+                                        required>
+                                    <span class="field-error" id="phone-error"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" name="email" placeholder="you@example.com">
+                            </div>
+
+                            <!-- <div class="form-group">
+                                <label for="contact-service">Service Required <span class="required">*</span></label>
+                                <select id="contact-service" name="service" required>
+                                    <option value="" disabled selected>— Select a service —</option>
+                                    <option value="stormwater">Stormwater Disposal System</option>
+                                    <option value="sewerage">Sewerage Construction</option>
+                                    <option value="water-supply">Water Supply System</option>
+                                    <option value="nwsdb">NWSDB Approval &amp; Liaison</option>
+                                    <option value="municipal">Municipal Project</option>
+                                    <option value="inspection">Drainage Inspection &amp; Repair</option>
+                                    <option value="other">Other / Not Sure</option>
+                                </select>
+                                <span class="field-error" id="service-error"></span>
+                            </div> -->
+
+                            <!-- <div class="form-group">
+                                <label for="contact-location">Project Location</label>
+                                <input type="text" id="contact-location" name="location"
+                                    placeholder="e.g. Nugegoda, Colombo 05">
+                            </div> -->
+
+                            <div class="form-group">
+                                <label for="contact-message">Project Details <span class="required">*</span></label>
+                                <textarea id="contact-message" name="message" rows="5"
+                                    placeholder="Briefly describe your project — scope, site size, timeline, any NWSDB requirements ..."
+                                    required></textarea>
+                                <span class="field-error" id="message-error"></span>
+                            </div>
+
+                            <button type="submit" class="form-submit-btn" id="submit-btn">
+                                <span id="btn-text">Send Message</span>
+                                <span class="btn-arrow">&#8594;</span>
+                            </button>
+
+                            <!-- Success state -->
+                            <div class="form-success" id="form-success" style="display:none;">
+                                <span class="success-icon">&#10003;</span>
+                                <p>Your message was sent! We'll be in touch within 24 hours.</p>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ================= MAP SECTION ================= -->
+            <section class="page-section map-section">
+                <h2 class="section-title">Find Us</h2>
+                <div class="map-wrapper">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.61870863895!2d79.77386979178578!3d6.921788459660637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae253d10f7a7003%3A0x320b2e4d32d3838d!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2slk!4v1710000000000!5m2!1sen!2slk"
+                        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="ZAM Construction location — Colombo, Sri Lanka">
+                    </iframe>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ================= FOOTER ================= -->
+        <footer>
+            <div class="footer-inner">
+                <div class="footer-col footer-brand">
+                    <div class="footer-logo">
+                        <img src="./assets/logo.png" alt="ZAM Construction Logo">
+                        <span>ZAM Construction</span>
+                    </div>
+                    <p class="footer-tagline">Sri Lanka's trusted contractor for water supply, sewerage &amp; stormwater
+                        drainage systems since 1996.</p>
+                    <div class="footer-certifications">
+                        <span class="cert-badge">NWSDB Certified</span>
+                        <span class="cert-badge">ICTAD Registered</span>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./index.html#services">Services</a></li>
+                        <li><a href="./about.html">About Us</a></li>
+                        <li><a href="./index.html#process">Our Process</a></li>
+                        <li><a href="./gallery.html">Gallery</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="./index.html#services">Stormwater Disposal</a></li>
+                        <li><a href="./index.html#services">Sewerage Construction</a></li>
+                        <li><a href="./index.html#services">Water Supply Systems</a></li>
+                        <li><a href="./index.html#services">NWSDB Approvals</a></li>
+                        <li><a href="./index.html#services">Municipal Projects</a></li>
+                        <li><a href="./index.html#services">Drainage Inspection</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact-list">
+                        <li><span class="footer-contact-icon">&#128205;</span><span>Colombo, Sri Lanka</span></li>
+                        <li><span class="footer-contact-icon">&#128222;</span><a href="tel:0777279301">0777 279 301</a>
+                        </li>
+                        <li><span class="footer-contact-icon">&#9993;</span><a
+                                href="mailto:info@zamconstruction.lk">info@zamconstruction.lk</a></li>
+                        <li><span class="footer-contact-icon">&#128336;</span><span>24/7 Emergency Response</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> ZAM Construction. All Rights Reserved.</p>
+                <p class="footer-bottom-right">Engineered for Durability &bull; Made in Sri Lanka</p>
+            </div>
+        </footer>
+
+    </div>
+    <script src="./global.js"></script>
+    <script src="./contact.js"></script>
+</body>
+
+</html>

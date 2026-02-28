@@ -1,238 +1,345 @@
 ---
-name: water-drainage-contractor-website
-description: >
-  Use this skill when building, updating, or planning any part of a water supply,
-  drainage, or plumbing contractor website — especially for Sri Lankan or South Asian
-  construction businesses. Triggers when the user mentions: building a contractor site,
-  water supply website, drainage company web page, NWSDB contractor, sewerage company
-  website, plumbing business website, construction company website in Colombo, or any
-  phase of this specific client project (HTML structure, CSS styling, content writing,
-  SRS, skill files, full website). Also trigger when user says "core part", "next phase",
-  "add section", "update the website", or references the competitor Abdeen Builders.
-  Always use this skill before writing any code, content, or documentation for this project.
+name: ZAM Construction UI Design System
+description: Design system, color palette, layout rules, HTML/CSS/JS conventions, and AI agent guidelines for the ZAM Construction website (Water & Drainage Contractor, Sri Lanka).
 ---
 
-# Water & Drainage Contractor Website — Development Skill
+# ZAM Construction — UI Design System & Agent Guidelines
 
-## Project Overview
-
-**Client:** [YOUR COMPANY NAME] — Water Supply & Drainage Contractors, Colombo, Sri Lanka  
-**Competitor:** Abdeen Builders (abdeenbuilders.com) — built on Zyrosite, generic template  
-**Goal:** Build a modern, professional, superior website that outclasses the competitor  
-**Development Strategy:** Core-first → then expand to full system  
-**Current Phase:** Phase 1 — Core HTML Structure  
+This skill defines the **single source of truth** for all UI decisions on this project. Any AI agent or developer making changes to `index.html`, `Style.css`, or `index.js` **must follow these rules precisely**. Do not introduce new patterns, colors, or layouts without updating this document first.
 
 ---
 
-## Development Phases
+## 1. Project Overview
+
+| Property       | Value                                         |
+|----------------|-----------------------------------------------|
+| **Company**    | ZAM Construction                             |
+| **Industry**   | Water Supply & Drainage Contracting, Sri Lanka |
+| **Tone**       | Professional, trustworthy, technical, clean   |
+| **Target**     | Municipal engineers, architects, businesses   |
+| **Style**      | Minimal, bold typography, black & blue        |
+
+---
+
+## 2. File Structure
 
 ```
-Phase 1 (NOW)   → Core HTML skeleton — semantic structure, all content, no CSS/JS
-Phase 2         → CSS Styling — Deep Blue & White, Syne + DM Sans fonts, animations
-Phase 3         → JavaScript — scroll reveal, mobile nav, form handling, WhatsApp float
-Phase 4         → Full Polish — real photos swapped in, SEO meta, performance tuning
-Phase 5         → Extended System — Projects gallery page, About page, Blog (optional)
+/usamaaa
+│
+├── index.html      ← Structure only. No inline <style> or <script> blocks.
+├── Style.css       ← All styles. No inline styles in HTML unless absolutely unavoidable.
+├── index.js        ← All JavaScript. Linked at the bottom of <body>.
+├── assets/
+│   └── logo.png   ← Company logo
+└── doc/
+    └── SKILL.md   ← This file
 ```
 
-**Always confirm which phase the user is working on before writing code.**
+### Rules
+- **NEVER put `<style>` blocks inside `index.html`.**  All CSS goes in `Style.css`.
+- **NEVER put `<script>` blocks inside `index.html`.** All JS goes in `index.js`.
+- Inline `style=""` attributes are only allowed for one-off overrides that cannot reasonably be expressed in CSS (e.g., dynamic values set by JS).
+- Always link stylesheet in `<head>`: `<link rel="stylesheet" href="./Style.css">`
+- Always link script at bottom of `<body>`: `<script src="./index.js"></script>`
 
 ---
 
-## Brand & Design Rules
+## 3. Color Palette
 
-| Property | Value |
-|---|---|
-| Primary Dark | `#030d1a` (deep navy) |
-| Primary Mid | `#0a2d52` / `#1253a0` (blue) |
-| Accent | `#00c2ff` (cyan) |
-| Background Light | `#f6f9fc` (soft gray) |
-| White | `#ffffff` |
-| Heading Font | Syne (800 weight) — Google Fonts |
-| Body Font | DM Sans (300/400/500) — Google Fonts |
-| Border Radius | Cards: 20px, Buttons: 50px, Icons: 14px |
-| Tone | Professional, trustworthy, modern — NOT generic |
+| Token / Usage           | Value                      | Notes                              |
+|-------------------------|----------------------------|------------------------------------|
+| **Primary — Black**     | `#000000` / `rgb(0,0,0)`   | Backgrounds, buttons, borders      |
+| **Accent — Blue**       | `rgb(29, 43, 226)`         | Links, icons, hover shadows, CTA   |
+| **Call Blue (pulse)**   | `rgb(0, 60, 255)`          | "Call Now" tooltip overlay         |
+| **Light Gray**          | `#f9f9f9`                  | About & Contact section bg         |
+| **Mid Gray**            | `#f4f4f4`                  | Projects section bg                |
+| **Dark Footer**         | `#111`                     | Footer background                  |
+| **Footer Text**         | `#aaa`                     | Footer body text                   |
+| **Border / Divider**    | `#ccc` / `#eee`            | Form inputs, card borders          |
+| **Muted Text**          | `#666`                     | Project caption, secondary text    |
+| **White**               | `#ffffff`                  | Card backgrounds, nav background   |
+| **Dark Certifications** | `#222`                     | Certifications strip background    |
 
----
-
-## Website Sections (Core)
-
-Every section has a matching `id` for anchor navigation. Build in this order:
-
-| # | Section ID | Element | Key Content |
-|---|---|---|---|
-| 1 | — | `<header>` + `<nav>` | Logo, nav links, CTA button |
-| 2 | `#hero` | `<section>` | H1, subtitle, 2 CTAs, 3 stats |
-| 3 | `#services` | `<section>` | 6 service cards |
-| 4 | `#about` | `<section>` | Why choose us, 6 bullet points |
-| 5 | `#process` | `<section>` | 4-step process (ol) |
-| 6 | `#projects` | `<section>` | 4 project items with img placeholders |
-| 7 | `#testimonials` | `<section>` | 3 blockquote testimonials |
-| 8 | `#certifications` | `<section>` | 4 certification badges |
-| 9 | `#contact` | `<section>` | Address + contact form |
-| 10 | — | `<footer>` | Copyright, links |
+### Rules
+- **Do not introduce new colors** without updating this table.
+- Accent blue `rgb(29, 43, 226)` is for: check icons, links, step numbers, cite text, submit-btn hover, input focus border, card hover shadow.
+- Black `#000` / `#111` is for: hero heading, nav bg on hover, submit button default, footer.
+- All backgrounds alternate between white and a light gray to create visual rhythm across sections.
 
 ---
 
-## Content Reference (Use Exactly)
+## 4. Typography
 
-### Company Details (Placeholders — client to confirm)
-- **Name:** [YOUR COMPANY NAME]
-- **Phone 1:** 0777 279 301
-- **Phone 2:** 0777 403 262
-- **WhatsApp:** +94 777 279 301 → `https://wa.me/94777279301`
-- **Email:** info@yourcompany.lk *(placeholder)*
-- **Location:** Colombo, Western Province, Sri Lanka
-- **Experience:** 28+ years
-- **Projects:** 500+
-- **Rating:** 5 Stars / NWSDB Certified
+| Property       | Value                              |
+|----------------|------------------------------------|
+| **Font Family** | `'Poppins', sans-serif`           |
+| **Font Source** | Google Fonts (add via `<link>` in `<head>`) |
+| **Base size**  | 16px (browser default)             |
+| **Line height** | 1.6 for body / paragraph text     |
 
-### 6 Services
-1. **Stormwater Disposal Systems** — Total storm water disposal solutions, house connection & municipality projects
-2. **Sewerage Construction** — Total sewerage construction solution, house connection & municipality projects
-3. **Water Supply Systems** — Efficient residential and commercial water supply infrastructure
-4. **NWSDB Approvals & Certifications** — Water sanctions, drainage approvals and drainage certificate works through NWSDB
-5. **Municipal Infrastructure Projects** — Large-scale municipality contracts for drainage and sewerage networks
-6. **Drainage Inspection & Repair** — Professional inspection, cleaning and repair of existing systems
+### Heading Scale
+| Element | Size      | Weight | Transform    | Usage                      |
+|---------|-----------|--------|--------------|----------------------------|
+| `h1`   | `60px`    | bold   | `uppercase`  | Hero headline only         |
+| `h2`   | `40px`    | bold   | `uppercase`  | Section headers            |
+| `h3`   | `30px`    | bold   | `uppercase`  | Card titles (services)     |
+| `h3`   | `22px`    | normal | none         | Project card titles        |
+| `h3`   | `28px`    | normal | none         | Contact info heading       |
 
-### 4 Process Steps
-1. **Free Consultation** — Contact us for a no-obligation site assessment
-2. **Site Assessment** — Engineer visits, full technical report prepared
-3. **Transparent Quote** — Itemized quotation, no surprises, approved before work begins
-4. **Expert Execution** — Certified team delivers on time with full documentation
-
-### 3 Testimonials
-1. *"Excellent service from start to finish..."* — Rajan Karunaratne, Property Developer, Colombo 7
-2. *"I needed NWSDB approval urgently..."* — Saman Perera, Homeowner, Nugegoda
-3. *"We awarded them a large municipal contract..."* — Amani Mendis, Project Officer, Colombo Municipality
-
-### 4 Projects
-1. Colombo Municipal Stormwater System — *Municipality*
-2. House Connection Nugegoda — *Residential*
-3. Water Supply Rajagiriya Complex — *Commercial*
-4. Sewerage Network Dehiwala — *Municipality*
-
-### 4 Certifications
-- NWSDB Certified
-- Colombo Municipal Council
-- ICTAD Registered
-- Sri Lanka Standards
+### Rules
+- All section `h2` headings use `.content h2`: `font-size: 40px; text-transform: uppercase; font-weight: bold`.
+- `h1` is reserved for the **hero section only**.
+- Do not add more than one `h1` per page.
 
 ---
 
-## Phase 1 — HTML Skeleton Rules
+## 5. Layout & Spacing
 
-When generating the HTML structure, follow these strictly:
-
+### Page Shell
+```css
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
 ```
-✅ Use semantic HTML5 elements only
-✅ One <h1> in hero only
-✅ <h2> for every section title
-✅ <h3> for service/project/step titles
-✅ <nav> inside <header>
-✅ <ul><li> for nav links
-✅ <address> tag in contact section
-✅ <blockquote><cite> for testimonials
-✅ <ol><li> for process steps (numbered)
-✅ <form> with <label> matched to every <input>
-✅ <img src="placeholder.jpg" alt="[description]"> for all images
-✅ id attributes on every section
-✅ <!-- comments --> marking all placeholder content
-✅ Proper indentation (2 spaces)
-✅ lang="en" on <html>
-✅ Complete <head> with title, meta description, viewport, charset
+All page content is a direct child of `.container`.
 
-❌ No <style> tags
-❌ No <script> tags  
-❌ No inline style="" attributes
-❌ No class="" attributes (Phase 1 only — added in Phase 2)
-❌ No divs where semantic elements work
+### Content Sections
+Every main section uses the `.content` class:
+```css
+.content {
+    padding: 60px 10px;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
 ```
 
----
-
-## Phase 2 — CSS Rules (when triggered)
-
-- All colors via CSS custom properties (`:root` variables)
-- Mobile-first, breakpoints at 900px and 600px
-- Load Google Fonts via `<link>` in `<head>`
-- No external CSS frameworks — pure CSS only
-- Use `clamp()` for responsive font sizes
-- Animate with `@keyframes` and `transition` only
-- Scroll reveal: `.reveal` class + `IntersectionObserver` in Phase 3
-
----
-
-## Phase 3 — JavaScript Rules (when triggered)
-
-- Vanilla JS only — no jQuery, no libraries
-- `IntersectionObserver` for scroll reveal
-- Hamburger menu: toggle `.open` class on `<nav>`
-- Form: `preventDefault` → show success message → reset
-- WhatsApp float button: fixed position, pulse animation via CSS
-
----
-
-## Competitor Weaknesses to Always Exploit in Content
-
-| Abdeen Builders Weakness | Our Website Solution |
-|---|---|
-| Says "28 years" AND "15+ years" — inconsistent | Always say "28+ years" consistently |
-| No real testimonials shown | Prominent testimonials with names |
-| Vague service descriptions | Detailed, specific service descriptions |
-| Generic stock photos | Placeholder + instruction to add real photos |
-| No process explanation | Clear 4-step process section |
-| Weak CTAs | Multiple strong CTAs + WhatsApp float |
-| Built on Zyrosite (slow) | Clean custom code (fast) |
-
----
-
-## File Naming Convention
-
-```
-/water-drainage-website/
-├── index.html          ← Phase 1 & 2 (core page)
-├── style.css           ← Phase 2 (if separated)
-├── script.js           ← Phase 3 (if separated)
-├── images/
-│   ├── hero-bg.jpg
-│   ├── project-1.jpg
-│   ├── project-2.jpg
-│   ├── project-3.jpg
-│   ├── project-4.jpg
-│   └── logo.png
-├── SKILL.md            ← This file
-└── SRS.md              ← System Requirements Specification
+### Inner Content Width
+Inner grids/containers should be constrained to **80% width** with `margin: auto`:
+```css
+.about-container,
+.process-container,
+.projects-container,
+.testimonials-container,
+.certifications-container,
+.contact-container { width: 80%; margin: auto; }
 ```
 
----
-
-## Quick Prompt Templates
-
-### Generate Phase 1 HTML
-> "Using the water-drainage-contractor-website skill, generate the Phase 1 HTML skeleton for the core website — semantic structure only, no CSS, no JS, all content filled in from the skill's content reference."
-
-### Add a Section
-> "Using the skill, add the [SECTION NAME] section to the existing index.html following Phase 1 rules."
-
-### Move to Phase 2
-> "The HTML skeleton is complete. Using the skill, apply Phase 2 CSS styling using the brand rules — Deep Blue theme, Syne + DM Sans fonts, all sections styled."
-
-### Check Against Competitor
-> "Review the current website content against the skill's competitor weakness table and suggest improvements."
+### Spacing Rules
+- Section padding: `60px 10px` (top/bottom)
+- Card internal padding: `30px` (process, testimonials) or `10px 30px 20px 30px` (service cards)
+- Gap between grid items: `20–30px`
+- `margin-bottom` on `h2` inside sections: `40px`
 
 ---
 
-## Placeholders Checklist (Give to Client)
+## 6. Navigation / Header
 
-Before going live, client must provide:
+- Fixed pill-shaped sticky header: `border-radius: 100px`, `width: 83%`, `top: 20px`
+- White background, subtle shadow: `box-shadow: 5px 5px 10px rgba(133,125,125,0.27)`
+- Nav links: black text, pill hover → `background-color: black; color: white; border-radius: 100px`
+- Logo: image left + bold uppercase text right, `gap: 10px`
+- `z-index: 100` to float above page content
 
-- [ ] Company name (replace all `[YOUR COMPANY NAME]`)
-- [ ] Real logo file (replace emoji placeholder)
-- [ ] Real phone numbers (verify 0777 279 301 / 0777 403 262)
-- [ ] Real email address (replace info@yourcompany.lk)
-- [ ] Full address for Google Maps embed
-- [ ] Project photos × 4 minimum (replace placeholder.jpg files)
-- [ ] About/team photo × 1
-- [ ] Real testimonials with permission from clients
-- [ ] Confirm certifications (NWSDB reg number if available)
-- [ ] Domain name for deployment
+---
+
+## 7. Buttons & CTAs
+
+### Standard Button (`.hero_contact a`)
+```css
+padding: 10px 30px;
+border: 1px solid;
+border-radius: 100px;
+color: black;
+transition: all 0.3s ease;
+```
+Hover → `background-color: black; color: white`
+
+### Primary CTA — "Call Now" (`.call`)
+```css
+background-color: black;
+color: white;
+```
+- Has a **pulsing blue border ring** animation (`call_btn_loop`, 0.8s infinite)
+- On hover: shows a tooltip with phone number (styled in `::before`)
+
+### Submit Button (`.submit-btn`)
+```css
+background-color: black;
+color: white;
+border-radius: 100px;
+padding: 15px;
+font-size: 16px;
+font-weight: bold;
+```
+Hover → `background-color: rgb(29, 43, 226)`
+
+### Rules
+- All main action buttons use `border-radius: 100px` (pill shape).
+- Primary actions are black-filled. Secondary/ghost are border-only.
+- Hover effects must use `transition: all 0.3s ease`.
+
+---
+
+## 8. Cards
+
+### Service Cards (`.services .card`)
+- `border: 1px solid` (default black border)
+- `border-radius: 10px`
+- `display: flex; flex-direction: column; align-items: center; gap: 10px`
+- Hover: `box-shadow: 5px 5px 0px rgb(19, 33, 233)` — **offset blue shadow, no blur**
+- Hover h3: `color: rgb(29, 43, 226)`
+- Grid: `repeat(3, 1fr)`, gap `20px`
+
+### Process Steps (`.process-step`)
+- White card with light border and subtle soft shadow
+- `border-radius: 10px`
+- Hover: `transform: translateY(-10px)` + offset blue shadow
+
+### Project Cards (`.project-card`)
+- White background, rounded corners, soft shadow
+- Image div 250px height with `background-size: cover`
+- Hover: `box-shadow: 5px 5px 0px black` (offset black shadow)
+
+### Hover Shadow System
+| Context          | Shadow style                         |
+|------------------|--------------------------------------|
+| Service cards    | `5px 5px 0px rgb(19, 33, 233)`      |
+| Process steps    | `5px 5px 0px rgb(19, 33, 233)`      |
+| Project cards    | `5px 5px 0px black`                 |
+| Hero list items  | `5px 5px 0px black`                 |
+| Submit btn       | `0 5px 15px rgba(29,43,226,0.4)`    |
+
+> **Rule:** Offset shadows (no blur or minimal blur) for interactive components. This creates the signature "flat design" hover feel.
+
+---
+
+## 9. Section Backgrounds
+
+Alternate section backgrounds to create visual rhythm:
+
+| Section ID         | Background        |
+|--------------------|-------------------|
+| Hero               | gradient + grid   |
+| `#services`        | white (default)   |
+| `#about`           | `#f9f9f9`         |
+| `#process`         | white             |
+| `#projects`        | `#f4f4f4`         |
+| `#testimonials`    | white             |
+| `#certifications`  | `#222` (dark)     |
+| `#contact`         | `#f9f9f9`         |
+| `footer`           | `#111`            |
+
+### Rules
+- Never use two consecutive white sections.
+- Dark sections (`#222`, `#111`) must have white or light text and white `h2`.
+- Use `min-height: auto` for utility strips (certifications, footer).
+
+---
+
+## 10. Hero Section
+
+- Full viewport height (`min-height: 100vh`)
+- Content positioned left (`align-items: start`) with `margin-left: 100px`
+- Wide heading: `font-size: 60px; text-transform: uppercase`
+- Two CTA buttons side by side in `.hero_contact` (flex row, `gap: 10px`)
+- Stats row in `.hero_list ul` (flex row, `gap: 30px`) — bordered pill list items
+- Background: `linear-gradient(rgba(255,255,255,0.096), rgba(255,255,255,0.692))` over an optional `.grid_bg` decorative layer
+- `main` has `position: relative; top: -90px` to pull up beneath the floating header
+
+---
+
+## 11. Forms
+
+- Grid layout: `grid-template-columns: 1fr 1fr; gap: 20px`
+- Full-width elements: `grid-column: span 2` on `.form-group.full-width`
+- Inputs/selects/textareas: `padding: 12px; border: 1px solid #ccc; border-radius: 5px`
+- Focus state: `border-color: rgb(29, 43, 226)` (blue, no outline)
+- Font: always `'Poppins', sans-serif` on form elements
+
+---
+
+## 12. Animations
+
+| Name             | Target               | Description                                       |
+|------------------|----------------------|---------------------------------------------------|
+| `call`           | `.call::before`      | Tooltip slides down from 50px → 70px, fades in   |
+| `call_btn_loop`  | `.call::after`       | Pulsing blue ring expands and fades, 0.8s infinite |
+| Nav hover        | `ul li a`            | Pill fill transition, `0.3s ease`                 |
+| Card hover       | `.card`, `.process-step` | `transform: translateY(-10px)`, `0.3s ease`  |
+
+### Rules
+- Use `transition: all 0.3s ease` as the standard transition on interactive elements.
+- Do not add `animation` unless it communicates a live/urgent action (e.g., the call button pulse).
+- All hover transforms should use `translateY` (lift effect) or box-shadow shift.
+
+---
+
+## 13. HTML Conventions
+
+- Use semantic HTML: `<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`, `<address>`.
+- Every section must have a unique `id` matching the nav anchor (`#hero`, `#services`, etc.).
+- Section wrapper pattern: `<section class="content [additional-class]" id="[id]">`
+- Do not nest `<section>` inside `<section>`.
+- Close all tags. Self-closing tags (`<img>`, `<input>`, `<br>`) do not need a trailing slash.
+- Use `<!-- ================= SECTION NAME ================= -->` comments to separate major blocks.
+
+---
+
+## 14. CSS Conventions
+
+- One CSS file: `Style.css`. No additional `.css` files unless explicitly needed (e.g., print.css).
+- Use section comments matching HTML: `/* ================= SECTION ================= */`
+- Use class selectors (`.class`), not IDs (`#id`), for styling — except for section-specific overrides like `#certifications { background-color: #222 }`.
+- Variables go in `:root {}` at the top of the file.
+- Media queries go at the **bottom** of the file, after all component styles.
+- Order of properties per rule: positioning → box model → typography → visual (color/bg/shadow) → animation.
+
+---
+
+## 15. JavaScript Conventions
+
+- One JS file: `index.js`. No inline `<script>` tags.
+- Use `const` and `let`. Never use `var`.
+- Add a comment block before each feature: `// ===== FEATURE NAME =====`
+- Event listeners go at the bottom of the file, after all function declarations.
+- Do not use jQuery or any external libraries unless added to `index.html` via CDN and documented here.
+
+---
+
+## 16. AI Agent Rules
+
+When an AI agent (such as Antigravity / Gemini) works on this codebase, it **MUST**:
+
+1. **Read this SKILL.md first** before making any UI changes.
+2. **Never introduce new colors** not listed in Section 3. Ask the user first.
+3. **Never add inline `<style>` or `<script>` blocks** to `index.html`.
+4. **Preserve the file separation**: HTML → `index.html`, CSS → `Style.css`, JS → `index.js`.
+5. **Match the existing hover shadow pattern** (offset, no-blur shadows) for any new cards.
+6. **Use pill-shaped buttons** (`border-radius: 100px`) for all primary CTAs.
+7. **Maintain section background alternation** — no two consecutive white or gray sections.
+8. **Keep inner content at 80% width** with `margin: auto` for all section containers.
+9. **Never change fonts** — always use `'Poppins', sans-serif`.
+10. **Update this SKILL.md** if a new pattern, color, or convention is introduced.
+
+---
+
+## 17. Do's and Don'ts
+
+| ✅ Do                                                    | ❌ Don't                                              |
+|----------------------------------------------------------|------------------------------------------------------|
+| Use `box-shadow: 5px 5px 0px` for card hover            | Use `box-shadow: 0 10px 30px rgba(...)` on cards     |
+| Use blue `rgb(29, 43, 226)` for accents & interactive   | Introduce indigo, teal, or other blues               |
+| Keep all buttons pill-shaped (`border-radius: 100px`)   | Use rectangular or slightly-rounded buttons          |
+| Write semantic HTML with section IDs                    | Use `<div>` instead of `<section>`, `<header>`, etc. |
+| Alternate section backgrounds (white/gray/dark)         | Stack multiple white sections in a row               |
+| Keep headings `text-transform: uppercase`               | Use sentence case or title case for `h2`/`h3`        |
+| Put all logic in `index.js`                             | Inline event handlers (`onclick=""` in HTML)         |
+| Add `transition: all 0.3s ease` on interactive elements | Skip transitions on hover states                     |
