@@ -207,6 +207,18 @@ nav {
     padding: 70px 0;
 }
 
+/* ===== SCROLL FADE-IN ANIMATION ===== */
+.fade-in-item {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.fade-in-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* ======================================================
    5. PAGE BANNER (about / gallery top bar)
    ====================================================== */

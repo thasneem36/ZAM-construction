@@ -198,17 +198,6 @@
     min-height: 240px;
 }
 
-/* ===== SCROLL FADE-IN ANIMATION ===== */
-.fade-in-item {
-    opacity: 0;
-    transform: translateY(26px);
-    transition: opacity 0.55s ease, transform 0.55s ease;
-}
-
-.fade-in-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 /* ===== VIDEO SHOWCASE SECTION ===== */
 .video-section {
